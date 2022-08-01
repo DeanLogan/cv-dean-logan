@@ -268,9 +268,6 @@ section {
   height: 2px;
   background-color: var(--color-grey-5);
 }
-.grid-container .info-container {
-  padding-right: 5rem;
-}
 .grid-container .info-container p {
   line-height: 2rem;
   padding: 1rem;
@@ -932,6 +929,24 @@ section {
   }
 }
 @media screen and (max-width: 340px) {
+  section {
+    font-size: smaller;
+  }
+  .main-title h2 {
+    font-size: 1.5rem !important;
+  }
+  .main-title h2 span {
+    font-size: 1.5rem !important;
+  }
+  .home {
+    font-size: smaller;
+  }
+  .home .right-home h1 {
+    font-size: 1.4rem !important;
+  }
+  h4 {
+    font-size: 1.2rem !important;
+  }
   .hover-imgs {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -947,6 +962,30 @@ section {
   }
   .grid-container .content-container .stat-item .stat-text .small-text {
     font-size: 0.8rem;
+  }
+  .timeline .timeline-item {
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--color-grey-5);
+  }
+  .timeline .timeline-item .tl-icon, .timeline .timeline-item .tl-img {
+    left: -13.5px;
+    top: 0;
+    width: 25px;
+    height: 25px;
+  }
+  .timeline .timeline-item .tl-icon i, .timeline .timeline-item .tl-img i {
+    font-size: 0.65rem;
+  }
+  .timeline .timeline-item .tl-icon img, .timeline .timeline-item .tl-img img {
+    width: 25px;
+    height: 25px;
+  }
+  .controls .control {
+    width: 45px;
+    height: 45px;
+  }
+  .controls .control i {
+    font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 395px) {
@@ -991,9 +1030,16 @@ section {
 @media screen and (max-width: 1070px) {
   .grid-container {
     grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
   }
   .grid-container .content-container {
     padding-top: 2.5rem;
+  }
+  #info {
+    order: 2;
+  }
+  #QueensDiv {
+    order: 1;
   }
   .main-title h2 {
     font-size: 4rem;
