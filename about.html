@@ -36,26 +36,27 @@
                         </div>
                     </div>
                     <div class="content-container">
-                        <div class="stat-item">
+                        <div class="stat-item" onclick="location.href='#skills'">
                             <div class="stat-text">
                                 <p class="large-text">20+</p>
                                 <p class="small-text">Skills</p>
                             </div>
                         </div>
+
                         <div class="stat-item">
-                            <div class="stat-text">
+                            <div class="stat-text" onclick="location.href='#tech-used'">
                                 <p class="large-text">20+</p>
                                 <p class="small-text">Technologies </br> used</p>
                             </div>
                         </div>
-                        <div class="stat-item">
+                        <div class="stat-item" onclick="location.href='#certs'">
                             <div class="stat-text">
                                 <p class="large-text">10+</p>
                                 <p class="small-text">Certifications</p>
                             </div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-text">
+                            <div class="stat-text" onclick="location.href='#courses'">
                                 <p class="large-text">25+</p>
                                 <p class="small-text">Online courses<br /> completed</p>
                             </div>
@@ -63,7 +64,7 @@
                     </div>
                 </div>
 
-                <div class="mid-section">
+                <div class="mid-section" id="skills">
                     <h4 class="stat-title">Skills</h4>
 
                     <div class="scroll-left-to-right">
@@ -113,7 +114,7 @@
 
                 </div>
 
-                <div class="mid-section">
+                <div class="mid-section" id="tech-used">
                     <h4 class="stat-title">Technologies Used</h4>
                     <div class="tech-used-container">
                         <img src="img/techUsed.png" alt="tech used">
@@ -121,22 +122,58 @@
 
                 </div>
 
-                <div class="mid-section">
+                <div class="mid-section" id="certs">
                     <h4 class="stat-title">Certifications</h4>
                     <p>Hover (or tap on mobile) to download (<i class="fas fa-download"></i>) the certificate or view the credly badge (<span class="credly">C</span>) <b>if</b> there is an associated badge.</p>
                     <div class="hover-imgs">
+
                         <div class="hover-img">
                             <div class="image">
-                                <img src="img/port1.jpg" alt="Digital Acumen Badge">
+                                <img src="img/certifications/azure ai fundamentals.png" alt="Azure Cloud Fundamentals">
+                            </div>
+                            <div class="hover-items">
+                                <h3>Azure AI Fundamentals</h3>
+                                <p>Issued by Microsoft, No Expiration</p>
+                                <br />
+                                <div class="icons">
+                                    <a href="filesForDownload/Certs/Azure AI Fundamentals.pdf" class="icon" target="_blank">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                    <a href="https://www.credly.com/badges/f2155026-8c74-499b-8ddc-93c70df8f35b/public_url" class="icon" target="_blank">
+                                        <p class="credly">C</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover-img">
+                            <div class="image">
+                                <img src="img/certifications/azure cloud fundamentals.png" alt="Azure Cloud Fundamentals">
+                            </div>
+                            <div class="hover-items">
+                                <h3>Azure Cloud Fundamentals</h3>
+                                <p>Issued by Microsoft, No Expiration</p>
+                                <br />
+                                <div class="icons">
+                                    <a href="filesForDownload/Certs/Azure Cloud Fundamentals.pdf" class="icon" target="_blank">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                    <a href="https://www.credly.com/badges/7783286b-eaee-4ab2-a29e-c44b02cef969/public_url" class="icon" target="_blank">
+                                        <p class="credly">C</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hover-img">
+                            <div class="image">
+                                <img src="img/certifications/digital acumen badge.png" alt="Digital Acumen Badge">
                             </div>
                             <div class="hover-items">
                                 <h3>Digital Acumen Badge</h3>
                                 <p>Issued by PwC, No Expiration</p>
                                 <br />
                                 <div class="icons">
-                                    <a href="#" class="icon">
-                                        <i class="fas fa-download"></i>
-                                    </a>
                                     <a href="https://www.credly.com/badges/e810a83e-59fd-4afe-9785-1239b6b9df55/public_url" class="icon" target="_blank">
                                         <p class="credly">C</p>
                                     </a>
@@ -308,7 +345,7 @@
                     </div>
                 </div>   
 
-                <div class="mid-section">
+                <div class="mid-section" id="courses">
                     <h4 class="stat-title">Online Courses</h4>
                     <p>Hover (or tap on mobile) to download (<i class="fas fa-download"></i>) the diploma of completion or view the credly badge (<span class="credly">C</span>) <b>if</b> there is an associated badge or (<i class="fa-solid fa-link"></i>) <b>if</b> there is a link to a different website to verify completion.</p>
                     <div class="hover-imgs">
