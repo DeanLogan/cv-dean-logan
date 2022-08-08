@@ -18,7 +18,8 @@
         <main>
             <section class="container active">
                 <div class="main-title">
-                    <h2>About <span>me</span></h2>
+                    <!--The ? indicate the start and end of the secondryy colour transformation within the typing effect-->
+                    <h2><span class="typewriter">About ?me?</span><span class="cursor" id="cursorId">_</span></h2>
                 </div>
                 <div class="grid-container">
                     <div class="info-container">
@@ -35,6 +36,8 @@
                             </a>
                         </div>
                     </div>
+
+                    <!--Below are the divs for the stat boxes at the start of page, each including an option to press on it to scroll to the corresponding section of the page-->
                     <div class="content-container">
                         <div class="stat-item" onclick="location.href='#skills'">
                             <div class="stat-text">
@@ -64,6 +67,7 @@
                     </div>
                 </div>
 
+                <!--Below is the HTML needed to create the text scrolling for the skills, each div has 4 unique stills in it, duplicates are needed for larger screen sizes-->
                 <div class="mid-section" id="skills">
                     <h4 class="stat-title">Skills</h4>
 
@@ -114,14 +118,15 @@
 
                 </div>
 
+                <!--Used to display the image for the tech used section-->
                 <div class="mid-section" id="tech-used">
                     <h4 class="stat-title">Technologies Used</h4>
                     <div class="tech-used-container">
                         <img src="img/techUsed.png" alt="tech used">
                     </div>
-
                 </div>
 
+                <!--Below is all of the divs needed to display the certifications-->
                 <div class="mid-section" id="certs">
                     <h4 class="stat-title">Certifications</h4>
                     <p>Hover (or tap on mobile) to download (<i class="fas fa-download"></i>) the certificate or view the credly badge (<span class="credly">C</span>) <b>if</b> there is an associated badge.</p>
@@ -345,6 +350,7 @@
                     </div>
                 </div>   
 
+                <!--Below is all of the divs needed to display the online courses-->
                 <div class="mid-section" id="courses">
                     <h4 class="stat-title">Online Courses</h4>
                     <p>Hover (or tap on mobile) to download (<i class="fas fa-download"></i>) the diploma of completion or view the credly badge (<span class="credly">C</span>) <b>if</b> there is an associated badge or (<i class="fa-solid fa-link"></i>) <b>if</b> there is a link to a different website to verify completion.</p>
@@ -840,6 +846,7 @@
             </section>
         </main>
 
+        <!--Buttons for navigation-->
         <div class="controls">
             <div class="control home-btn">
                 <i class="fas fa-home"></i>

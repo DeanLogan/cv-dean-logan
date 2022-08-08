@@ -1,10 +1,13 @@
+var visible = true;
+var myTimer;
+var myTimerTypeWriter;
+
 function pageTransitions(){
    const homeBtn = document.querySelector('.home-btn');
    const aboutBtn = document.querySelector('.about-btn');
    const educationBtn = document.querySelector('.education-btn');
    const experiencesBtn = document.querySelector('.experiences-btn');
    const portfolioBtn = document.querySelector('.portfolio-btn');
-   var myTimer;
 
     homeBtn.addEventListener('click', () =>{
         window.open('index.html', '_self');
@@ -43,6 +46,13 @@ function pageTransitions(){
 
 function pageLoad(){
     checkTheme();
+    var colourFound = false;
+    var txt = document.getElementsByClassName('typewriter')[0].textContent;
+    window.setInterval('cursor()',400);
+    document.getElementsByClassName('typewriter')[0].innerHTML = '';
+    myTimerTypeWriter = setTimeout(function(){
+        typeWriter(txt, colourFound);
+    },900);
     //helps make the animation look smoother if the images load in later on
     if ( document.URL.includes("about") ) {
         myTimer = setInterval('imageLoad()', 550);
@@ -62,6 +72,46 @@ function checkTheme(){
     if(theme == 'light-mode'){
         let element = document.body;
         element.classList.toggle('light-mode');
+    }
+}
+
+function typeWriter(txt, colourFound) {
+    var i = 0;
+    var timer = setInterval(function(){
+        if(txt.charAt(i) == '?'){
+            document.getElementsByClassName('typewriter')[0].innerHTML += '<span class="colour"></span>';
+            if(!colourFound){
+                colourFound = true;
+            }
+            else{
+                colourFound = false;
+            }
+            console.log('colour found');
+        }
+        else{
+            if(!colourFound){
+                document.getElementsByClassName('typewriter')[0].innerHTML += txt.charAt(i);
+            }
+            else{
+                document.getElementsByClassName('colour')[0].innerHTML += txt.charAt(i);
+            }
+        }
+        i++;
+        if(i > txt.length){
+            clearInterval(timer);
+        }
+    }, 120);
+}
+
+function cursor() {
+    console.log('cursor');
+    if (visible === true) {
+        document.getElementById('cursorId').className = 'cursor-hidden';
+        visible = false;
+    } 
+    else {
+        document.getElementById('cursorId').className = 'cursor';
+        visible = true;
     }
 }
 

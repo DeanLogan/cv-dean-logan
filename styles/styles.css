@@ -214,7 +214,7 @@ section {
 .home-content .right-home .name {
   font-size: 3rem;
 }
-.home-content .right-home .name span {
+.home-content .right-home .name .colour {
   color: var(--color-secondary);
 }
 .home-content .right-home p {
@@ -748,7 +748,7 @@ section {
   font-size: 4rem;
   font-weight: 700;
 }
-.main-title h2 span {
+.main-title h2 span .colour {
   color: var(--color-secondary);
 }
 .main-title h2 .bg-text {
@@ -761,6 +761,10 @@ section {
   transform: translate(-50%, -50%);
   font-weight: 800;
   font-size: 6.3rem;
+}
+
+.cursor-hidden {
+  opacity: 0;
 }
 
 .grid-container .info-container p {
