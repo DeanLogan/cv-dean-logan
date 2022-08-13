@@ -295,12 +295,12 @@ section {
     display: flex;
     p{
         white-space: nowrap;
-        animation: left-to-right-1 120s linear infinite;
-        animation-delay: -120s;
+        animation: left-to-right-1 180s linear infinite;
+        animation-delay: -180s;
     }
     p:nth-child(2){
-        animation: left-to-right-2 120s linear infinite;
-        animation-delay: -60s;
+        animation: left-to-right-2 180s linear infinite;
+        animation-delay: -90s;
     }
 }
 
@@ -309,12 +309,12 @@ section {
     display: flex;
     p{
         white-space: nowrap;
-        animation: right-to-left-1 120s linear infinite;
-        animation-delay: -120s;
+        animation: right-to-left-1 180s linear infinite;
+        animation-delay: -180s;
     }
     p:nth-child(2){
-        animation: right-to-left-2 120s linear infinite;
-        animation-delay: -60s;
+        animation: right-to-left-2 180s linear infinite;
+        animation-delay: -90s;
     }
 }
 
@@ -703,8 +703,12 @@ section {
     }
 }
 
-.cursor-hidden{
+.hidden{
     opacity: 0;
+}
+
+.mobile-view{
+    display: none;
 }
 
 @import './media';

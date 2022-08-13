@@ -304,16 +304,16 @@ section {
 }
 .scroll-left-to-right p {
   white-space: nowrap;
-  -webkit-animation: left-to-right-1 120s linear infinite;
-          animation: left-to-right-1 120s linear infinite;
-  -webkit-animation-delay: -120s;
-          animation-delay: -120s;
+  -webkit-animation: left-to-right-1 180s linear infinite;
+          animation: left-to-right-1 180s linear infinite;
+  -webkit-animation-delay: -180s;
+          animation-delay: -180s;
 }
 .scroll-left-to-right p:nth-child(2) {
-  -webkit-animation: left-to-right-2 120s linear infinite;
-          animation: left-to-right-2 120s linear infinite;
-  -webkit-animation-delay: -60s;
-          animation-delay: -60s;
+  -webkit-animation: left-to-right-2 180s linear infinite;
+          animation: left-to-right-2 180s linear infinite;
+  -webkit-animation-delay: -90s;
+          animation-delay: -90s;
 }
 
 .scroll-right-to-left {
@@ -322,16 +322,16 @@ section {
 }
 .scroll-right-to-left p {
   white-space: nowrap;
-  -webkit-animation: right-to-left-1 120s linear infinite;
-          animation: right-to-left-1 120s linear infinite;
-  -webkit-animation-delay: -120s;
-          animation-delay: -120s;
+  -webkit-animation: right-to-left-1 180s linear infinite;
+          animation: right-to-left-1 180s linear infinite;
+  -webkit-animation-delay: -180s;
+          animation-delay: -180s;
 }
 .scroll-right-to-left p:nth-child(2) {
-  -webkit-animation: right-to-left-2 120s linear infinite;
-          animation: right-to-left-2 120s linear infinite;
-  -webkit-animation-delay: -60s;
-          animation-delay: -60s;
+  -webkit-animation: right-to-left-2 180s linear infinite;
+          animation: right-to-left-2 180s linear infinite;
+  -webkit-animation-delay: -90s;
+          animation-delay: -90s;
 }
 
 @-webkit-keyframes right-to-left-1 {
@@ -763,8 +763,12 @@ section {
   font-size: 6.3rem;
 }
 
-.cursor-hidden {
+.hidden {
   opacity: 0;
+}
+
+.mobile-view {
+  display: none;
 }
 
 .grid-container .info-container p {
@@ -1034,6 +1038,14 @@ section {
     height: 50%;
   }
 }
+@media screen and (max-width: 550px) {
+  .mobile-view {
+    display: contents;
+  }
+  .desktop-view {
+    display: none;
+  }
+}
 @media screen and (max-width: 395px) {
   .hover-imgs .hover-img .hover-items h3 {
     font-size: 0.75rem;
@@ -1051,6 +1063,18 @@ section {
   }
   .hover-imgs .hover-img .hover-items p {
     font-size: 0.75rem;
+  }
+  .scroll-left-to-right p {
+    -webkit-animation: left-to-right-1 120s linear infinite;
+            animation: left-to-right-1 120s linear infinite;
+    -webkit-animation-delay: -120s;
+            animation-delay: -120s;
+  }
+  .scroll-left-to-right p:nth-child(2) {
+    -webkit-animation: left-to-right-2 120s linear infinite;
+            animation: left-to-right-2 120s linear infinite;
+    -webkit-animation-delay: -60s;
+            animation-delay: -60s;
   }
 }
 @media screen and (max-width: 340px) {

@@ -325,6 +325,16 @@
     }
 }
 
+@media screen and (max-width:550px){
+    .mobile-view{
+        display: contents;
+    }
+
+    .desktop-view{
+        display: none;
+    }
+}
+
 @media screen and (max-width:395px){
     .hover-imgs{
         .hover-img{
@@ -351,11 +361,21 @@
             }
         }
     }
+
+    .scroll-left-to-right{
+        p{
+            animation: left-to-right-1 120s linear infinite;
+            animation-delay: -120s;
+        }
+        p:nth-child(2){
+            animation: left-to-right-2 120s linear infinite;
+            animation-delay: -60s;
+        }
+    }
 }
 
 @media screen and (max-width:340px){
     section{
-        //background-color: yellow !important;
         font-size: smaller;
     }
     .main-title{

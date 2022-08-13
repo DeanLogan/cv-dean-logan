@@ -2,6 +2,7 @@ var visible = true;
 var myTimer;
 var myTimerTypeWriter;
 
+//turns the divs into links to the other pages on the website
 function pageTransitions(){
    const homeBtn = document.querySelector('.home-btn');
    const aboutBtn = document.querySelector('.about-btn');
@@ -44,29 +45,32 @@ function pageTransitions(){
     });
 }
 
+//runs when the page is loaded
 function pageLoad(){
     checkTheme();
     var colourFound = false;
-    var txt = document.getElementsByClassName('typewriter')[0].textContent;
-    window.setInterval('cursor()',400);
+    var txt = document.getElementsByClassName('typewriter')[0].textContent; //gets the text inside the HTML for the typewriter effect
+    window.setInterval('cursor()',400); //used to make the underscore cursor blink
     document.getElementsByClassName('typewriter')[0].innerHTML = '';
     myTimerTypeWriter = setTimeout(function(){
         typeWriter(txt, colourFound);
-    },900);
-    //helps make the animation look smoother if the images load in later on
+    },900); //waits for the transition to happen before starting the typewriter effect
+
+    //helps make the animation look smoother if the certs and online courses for the about page load in after the transition animation
     if ( document.URL.includes("about") ) {
         myTimer = setInterval('imageLoad()', 550);
     }
 }
 
+//makes the certs and online courses appear once the page has loaded in
 function imageLoad(){
     clearInterval(myTimer);
     document.getElementsByClassName('tech-used-container')[0].style.opacity = 1;
     document.getElementsByClassName('hover-imgs')[0].style.opacity = 1;
     document.getElementsByClassName('hover-imgs')[1].style.opacity = 1;
-    
 }
 
+//checks what theme is in the local storage and updates the webpage accordingly 
 function checkTheme(){
     var theme = localStorage.getItem('theme');
     if(theme == 'light-mode'){
@@ -75,9 +79,11 @@ function checkTheme(){
     }
 }
 
+//this is responsible for the typewriter effect for the titles of each page
 function typeWriter(txt, colourFound) {
     var i = 0;
     var timer = setInterval(function(){
+        //uses the character ? to find where the colour should be swaped in the title (from primary to secondary colour and vise-versa)
         if(txt.charAt(i) == '?'){
             document.getElementsByClassName('typewriter')[0].innerHTML += '<span class="colour"></span>';
             if(!colourFound){
@@ -86,7 +92,6 @@ function typeWriter(txt, colourFound) {
             else{
                 colourFound = false;
             }
-            console.log('colour found');
         }
         else{
             if(!colourFound){
@@ -103,10 +108,10 @@ function typeWriter(txt, colourFound) {
     }, 120);
 }
 
+//makes the curosr blink
 function cursor() {
-    console.log('cursor');
     if (visible === true) {
-        document.getElementById('cursorId').className = 'cursor-hidden';
+        document.getElementById('cursorId').className = 'hidden';
         visible = false;
     } 
     else {
