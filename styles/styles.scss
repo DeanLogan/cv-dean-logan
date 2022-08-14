@@ -149,6 +149,27 @@ section {
 
 
 /*Header-content*/
+
+@keyframes bring-in-shape {
+    0%{
+        background-color: var(--color-secondary);
+        clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+    }
+    25%{
+        clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
+    }
+    50%{
+        clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
+    }
+    75%{
+        clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
+    }
+    100%{
+        background-color: var(--color-secondary);
+        clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+    }
+}
+
 .home-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -161,12 +182,11 @@ section {
             transition: all .4s ease-in-out;
             width: 65%;
             height: 100%;
-            background-color: var(--color-secondary);
             position: absolute;
             left: 0;
             top: 0;
             z-index: -1;
-            clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+            animation: bring-in-shape 3s linear 0.65s forwards;
         }
         .image {
             border-radius: 15px;

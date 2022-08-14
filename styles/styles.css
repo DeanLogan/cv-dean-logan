@@ -163,6 +163,54 @@ section {
 }
 
 /*Header-content*/
+@-webkit-keyframes bring-in-shape {
+  0% {
+    background-color: var(--color-secondary);
+    -webkit-clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+            clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+  }
+  25% {
+    -webkit-clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
+            clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
+  }
+  50% {
+    -webkit-clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
+            clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
+  }
+  75% {
+    -webkit-clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
+            clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
+  }
+  100% {
+    background-color: var(--color-secondary);
+    -webkit-clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+            clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+  }
+}
+@keyframes bring-in-shape {
+  0% {
+    background-color: var(--color-secondary);
+    -webkit-clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+            clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
+  }
+  25% {
+    -webkit-clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
+            clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
+  }
+  50% {
+    -webkit-clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
+            clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
+  }
+  75% {
+    -webkit-clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
+            clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
+  }
+  100% {
+    background-color: var(--color-secondary);
+    -webkit-clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+            clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+  }
+}
 .home-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -177,13 +225,12 @@ section {
   transition: all 0.4s ease-in-out;
   width: 65%;
   height: 100%;
-  background-color: var(--color-secondary);
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
-  -webkit-clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
-          clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+  -webkit-animation: bring-in-shape 3s linear 0.65s forwards;
+          animation: bring-in-shape 3s linear 0.65s forwards;
 }
 .home-content .left-home .image {
   border-radius: 15px;
