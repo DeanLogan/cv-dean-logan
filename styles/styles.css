@@ -1005,7 +1005,6 @@ section {
     padding: 2rem 2.5rem !important;
   }
   .hover-imgs {
-    grid-template-columns: repeat(1, 1fr);
     padding-bottom: 6rem;
     margin-top: 1rem;
   }
@@ -1082,7 +1081,7 @@ section {
     grid-template-columns: repeat(1, 1fr);
   }
   .hover-imgs .hover-img img {
-    height: 50%;
+    height: 10%;
   }
 }
 @media screen and (max-width: 550px) {
