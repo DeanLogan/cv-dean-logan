@@ -66,8 +66,12 @@ function pageLoad(){
 function imageLoad(){
     clearInterval(myTimer);
     document.getElementsByClassName('tech-used-container')[0].style.opacity = 1;
-    document.getElementsByClassName('hover-imgs')[0].style.opacity = 1;
-    document.getElementsByClassName('hover-imgs')[1].style.opacity = 1;
+    console.log(document.getElementsByClassName('hover-imgs').length);
+
+    for(i=0;i<document.getElementsByClassName('hover-imgs').length;i++){
+        console.log(i);
+        document.getElementsByClassName('hover-imgs')[i].style.opacity = 1;
+    }
 }
 
 //checks what theme is in the local storage and updates the webpage accordingly 
