@@ -80,17 +80,8 @@ section {
 
 .active {
   display: block;
-  -webkit-animation: appear 1s ease-in-out;
-          animation: appear 1s ease-in-out;
+  animation: appear 1s ease-in-out;
   transform: translateY(0) scaleY(1);
-}
-@-webkit-keyframes appear {
-  0% {
-    transform: translateY(-100%) scaleY(0);
-  }
-  100% {
-    transform: translateY(0) scaleY(1);
-  }
 }
 @keyframes appear {
   0% {
@@ -163,30 +154,6 @@ section {
 }
 
 /*Header-content*/
-@-webkit-keyframes bring-in-shape {
-  0% {
-    background-color: var(--color-secondary);
-    -webkit-clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
-            clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
-  }
-  25% {
-    -webkit-clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
-            clip-path: polygon(0 0, 23% 0, 23% 100%, 0% 100%);
-  }
-  50% {
-    -webkit-clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
-            clip-path: polygon(0 0, 46% 0, 46% 100%, 0% 100%);
-  }
-  75% {
-    -webkit-clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
-            clip-path: polygon(0 0, 46% 0, 62.5% 100%, 0% 100%);
-  }
-  100% {
-    background-color: var(--color-secondary);
-    -webkit-clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
-            clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
-  }
-}
 @keyframes bring-in-shape {
   0% {
     background-color: var(--color-secondary);
@@ -229,8 +196,7 @@ section {
   left: 0;
   top: 0;
   z-index: -1;
-  -webkit-animation: bring-in-shape 3s linear 0.65s forwards;
-          animation: bring-in-shape 3s linear 0.65s forwards;
+  animation: bring-in-shape 3s linear 0.65s forwards;
 }
 .home-content .left-home .image {
   border-radius: 15px;
@@ -351,16 +317,12 @@ section {
 }
 .scroll-left-to-right p {
   white-space: nowrap;
-  -webkit-animation: left-to-right-1 180s linear infinite;
-          animation: left-to-right-1 180s linear infinite;
-  -webkit-animation-delay: -180s;
-          animation-delay: -180s;
+  animation: left-to-right-1 180s linear infinite;
+  animation-delay: -180s;
 }
 .scroll-left-to-right p:nth-child(2) {
-  -webkit-animation: left-to-right-2 180s linear infinite;
-          animation: left-to-right-2 180s linear infinite;
-  -webkit-animation-delay: -90s;
-          animation-delay: -90s;
+  animation: left-to-right-2 180s linear infinite;
+  animation-delay: -90s;
 }
 
 .scroll-right-to-left {
@@ -369,25 +331,12 @@ section {
 }
 .scroll-right-to-left p {
   white-space: nowrap;
-  -webkit-animation: right-to-left-1 180s linear infinite;
-          animation: right-to-left-1 180s linear infinite;
-  -webkit-animation-delay: -180s;
-          animation-delay: -180s;
+  animation: right-to-left-1 180s linear infinite;
+  animation-delay: -180s;
 }
 .scroll-right-to-left p:nth-child(2) {
-  -webkit-animation: right-to-left-2 180s linear infinite;
-          animation: right-to-left-2 180s linear infinite;
-  -webkit-animation-delay: -90s;
-          animation-delay: -90s;
-}
-
-@-webkit-keyframes right-to-left-1 {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  animation: right-to-left-2 180s linear infinite;
+  animation-delay: -90s;
 }
 
 @keyframes right-to-left-1 {
@@ -398,14 +347,6 @@ section {
     transform: translateX(-100%);
   }
 }
-@-webkit-keyframes right-to-left-2 {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-200%);
-  }
-}
 @keyframes right-to-left-2 {
   0% {
     transform: translateX(0);
@@ -414,28 +355,12 @@ section {
     transform: translateX(-200%);
   }
 }
-@-webkit-keyframes left-to-right-1 {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
 @keyframes left-to-right-1 {
   0% {
     transform: translateX(-100%);
   }
   100% {
     transform: translateX(100%);
-  }
-}
-@-webkit-keyframes left-to-right-2 {
-  0% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0%);
   }
 }
 @keyframes left-to-right-2 {
@@ -550,15 +475,6 @@ section {
 
 .credly {
   font-family: "Pacifico", cursive !important;
-}
-
-@-webkit-keyframes makeAppear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes makeAppear {
@@ -1128,16 +1044,12 @@ section {
     font-size: 0.75rem;
   }
   .scroll-left-to-right p {
-    -webkit-animation: left-to-right-1 120s linear infinite;
-            animation: left-to-right-1 120s linear infinite;
-    -webkit-animation-delay: -120s;
-            animation-delay: -120s;
+    animation: left-to-right-1 120s linear infinite;
+    animation-delay: -120s;
   }
   .scroll-left-to-right p:nth-child(2) {
-    -webkit-animation: left-to-right-2 120s linear infinite;
-            animation: left-to-right-2 120s linear infinite;
-    -webkit-animation-delay: -60s;
-            animation-delay: -60s;
+    animation: left-to-right-2 120s linear infinite;
+    animation-delay: -60s;
   }
 }
 @media screen and (max-width: 340px) {
