@@ -4,11 +4,11 @@ var myTimerTypeWriter;
 
 //turns the divs into links to the other pages on the website
 function pageTransitions(){
-   const homeBtn = document.querySelector('.home-btn');
-   const aboutBtn = document.querySelector('.about-btn');
-   const educationBtn = document.querySelector('.education-btn');
-   const experiencesBtn = document.querySelector('.experiences-btn');
-   const portfolioBtn = document.querySelector('.portfolio-btn');
+    const homeBtn = document.querySelector('.home-btn');
+    const aboutBtn = document.querySelector('.about-btn');
+    const educationBtn = document.querySelector('.education-btn');
+    const experiencesBtn = document.querySelector('.experiences-btn');
+    const portfolioBtn = document.querySelector('.portfolio-btn');
 
     homeBtn.addEventListener('click', () =>{
         window.open('index.html', '_self');
