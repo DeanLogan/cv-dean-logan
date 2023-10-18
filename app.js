@@ -60,6 +60,9 @@ function pageLoad(){
     if ( document.URL.includes("about") ) {
         myTimer = setInterval('imageLoad()', 550);
     }
+    if ( document.title == "Home" ) {
+        showSlides();
+    }
 }
 
 //makes the certs and online courses appear once the page has loaded in
@@ -124,6 +127,23 @@ function cursor() {
     }
 }
 
+// slideshow for the index/home page
+let slideIndex = 0;
+//showSlides();
+
+function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 6000); // Change image every 2 seconds (adjust as needed)
+}
 
 window.onload = pageLoad();
 pageTransitions();

@@ -63,6 +63,31 @@ a {
   padding: 0 !important;
 }
 
+.image {
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+  width: 100%;
+  height: auto;
+  animation: fade 6s infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 section {
   min-height: 100vh;
   width: 100%;
@@ -494,6 +519,14 @@ section {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes makeDisappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 .hover-imgs {
