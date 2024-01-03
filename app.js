@@ -48,6 +48,7 @@ function pageTransitions(){
 //runs when the page is loaded
 function pageLoad(){
     checkTheme();
+    hoverEffectForControls();
     var colourFound = false;
     var txt = document.getElementsByClassName('typewriter')[0].textContent; //gets the text inside the HTML for the typewriter effect
     window.setInterval('cursor()',400); //used to make the underscore cursor blink
@@ -143,6 +144,48 @@ function showSlides() {
     }
     slides[slideIndex - 1].style.display = "block";
     setTimeout(showSlides, 6000); // Change image every 2 seconds (adjust as needed)
+}
+
+function placeHoverDivsBesideControls(){
+    var controls = document.querySelector('.controls').getBoundingClientRect();
+    document.querySelector('.controls-hover').style.left = (controls.left-125) + 'px';
+}
+
+function hoverEffectForControls(){
+    // Get all the child elements of the 'controls' div
+    var controls = document.querySelector('.controls').children;
+
+    for (var i = 0; i < controls.length; i++) {
+        // Add a 'mouseenter' event listener to each child element
+        controls[i].addEventListener('mouseenter', function() {
+            var currentClass = this.className.split(' ')[1];
+            var associatedDiv = document.querySelector('.' + currentClass + '-div'); // Get the div associated with the current child element
+            
+            // Hide all other divs
+            var allDivs = document.querySelectorAll('.hover-effect');
+            for (var j = 0; j < allDivs.length; j++) {
+                allDivs[j].style.opacity = '0';
+            }
+            
+            // Display the associated div
+            if (associatedDiv) {
+                associatedDiv.style.animation = "makeAppear 0.5s forwards";
+                placeHoverDivsBesideControls();
+            }
+        });
+
+        // Add a 'mouseleave' event listener to each child element
+        controls[i].addEventListener('mouseleave', function() {
+            var currentClass = this.className.split(' ')[1];
+            var associatedDiv = document.querySelector('.' + currentClass + '-div'); // Get the div associated with the current child element
+            
+            // Hide the associated div
+            if (associatedDiv) {
+                //associatedDiv.style.opacity = '0';
+                associatedDiv.style.animation = "makeDisappear 0.5s forwards";
+            }
+        });
+    }
 }
 
 window.onload = pageLoad();
