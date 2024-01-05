@@ -362,6 +362,7 @@ section {
   padding-top: 1rem;
 }
 .grid-container .info-container .lists {
+  padding-right: 0px;
   text-align: center;
 }
 .grid-container .image-container {
