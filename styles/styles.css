@@ -374,6 +374,10 @@ section {
   padding-right: 1rem;
 }
 
+#QueensDiv {
+  padding-left: 1rem;
+}
+
 .scroll-left-to-right {
   overflow: hidden;
   display: flex;

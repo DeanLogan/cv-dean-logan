@@ -338,7 +338,6 @@ section {
     }
 
     .info-container {
-        //padding-right: 5rem;
         p {
             line-height: 2rem;
             padding: 1rem;
@@ -363,11 +362,14 @@ section {
         display: flex;
         justify-content: left;
         overflow: hidden;
-        //padding-right: 10px;
         img{
             padding-right: 1rem;
         }
     }
+}
+
+#QueensDiv {
+    padding-left: 1rem;
 }
 
 
