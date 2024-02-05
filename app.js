@@ -72,8 +72,13 @@ async function getGithubStats() {
         fetch('/.netlify/functions/github-stats')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('githubYearStat').innerText = data.lastYearContributions;
-            document.getElementById('githubMonthStat').innerText = data.lastMonthContributions;
+            console.log(data)
+            console.log(data.lastMonthContributions)
+            console.log(data.lastYearContributions)
+            if (data.lastYearContributions != "undefined" && data.lastMonthContributions != "undefined") {
+                document.getElementById('githubYearStat').innerText = data.lastYearContributions;
+                document.getElementById('githubMonthStat').innerText = data.lastMonthContributions;
+            }
         })
         .catch(error => console.error('Error:', error));
     } 

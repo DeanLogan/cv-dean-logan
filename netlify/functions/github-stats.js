@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+import { request } from 'https';
 
 export async function handler(event, context) {
     const token = process.env.GITHUB_TOKEN;
@@ -16,7 +16,6 @@ export async function handler(event, context) {
     };
 }
 
-// Gets the contribution number for the last year, the number that shows above the contribution graph on github
 function contributionsLastYear(username, token) {
     var query = `
     query($userName:String!) { 
@@ -34,25 +33,29 @@ function contributionsLastYear(username, token) {
             }
         }
     }`;
-    
-    return fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({
+
+    return new Promise((resolve, reject) => {
+        const req = request('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        }, res => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => resolve(JSON.parse(data).data.user.contributionsCollection.contributionCalendar.totalContributions));
+        });
+
+        req.on('error', reject);
+        req.write(JSON.stringify({
             query: query,
             variables: {userName: username}
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        return data.data.user.contributionsCollection.contributionCalendar.totalContributions;
+        }));
+        req.end();
     });
 }
 
-// Gets the total contributions over the last month by adding up all the contribution stats (does not include repos created)
 function contributionsLastMonth(username, token) {
     var to = new Date();
     var year  = to.getFullYear();
@@ -79,24 +82,31 @@ function contributionsLastMonth(username, token) {
         to: to.toISOString()
     };
 
-    return fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({
+    return new Promise((resolve, reject) => {
+        const req = request('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            },
+        }, res => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+                const contributions = JSON.parse(data).data.user.contributionsCollection;
+                resolve(contributions.totalCommitContributions +
+                        contributions.totalIssueContributions +
+                        contributions.totalPullRequestContributions +
+                        contributions.totalPullRequestReviewContributions +
+                        contributions.restrictedContributionsCount);
+            });
+        });
+
+        req.on('error', reject);
+        req.write(JSON.stringify({
             query: query,
             variables: variables
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        const contributions = data.data.user.contributionsCollection;
-        return contributions.totalCommitContributions +
-                contributions.totalIssueContributions +
-                contributions.totalPullRequestContributions +
-                contributions.totalPullRequestReviewContributions +
-                contributions.restrictedContributionsCount;
+        }));
+        req.end();
     });
 }
