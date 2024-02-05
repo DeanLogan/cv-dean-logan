@@ -1,5 +1,7 @@
 import { request } from 'https';
 
+await handler("", "")
+
 export async function handler(event, context) {
     const token = process.env.GITHUB_TOKEN;
     const username = 'DeanLogan';
@@ -91,6 +93,7 @@ function contributionsLastMonth(username, token) {
             },
         }, res => {
             let data = '';
+            console.log(data);
             res.on('data', chunk => data += chunk);
             res.on('end', () => {
                 const contributions = JSON.parse(data).data.user.contributionsCollection;
