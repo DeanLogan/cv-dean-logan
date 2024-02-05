@@ -60,9 +60,25 @@ function pageLoad(){
     //helps make the animation look smoother if the certs and online courses for the about page load in after the transition animation
     if ( document.URL.includes("about") ) {
         myTimer = setInterval('imageLoad()', 550);
+        getGithubStats();
     }
     if ( document.title == "Home" ) {
         showSlides();
+    }
+}
+
+async function getGithubStats() {
+    try {
+        fetch('/.netlify/functions/github-stats')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('githubYearStat').innerText = data.lastYearContributions;
+            document.getElementById('githubMonthStat').innerText = data.lastMonthContributions;
+        })
+        .catch(error => console.error('Error:', error));
+    } 
+    catch {
+        console.log("netlify functin is down")
     }
 }
 
@@ -70,10 +86,8 @@ function pageLoad(){
 function imageLoad(){
     clearInterval(myTimer);
     document.getElementsByClassName('tech-used-container')[0].style.opacity = 1;
-    console.log(document.getElementsByClassName('hover-imgs').length);
 
     for(i=0;i<document.getElementsByClassName('hover-imgs').length;i++){
-        console.log(i);
         document.getElementsByClassName('hover-imgs')[i].style.opacity = 1;
     }
 }
