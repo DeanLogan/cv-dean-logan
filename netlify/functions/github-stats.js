@@ -1,7 +1,5 @@
 import { request } from 'https';
 
-await handler("", "")
-
 export async function handler(event, context) {
     const token = process.env.GITHUB_TOKEN;
     const username = 'DeanLogan';
