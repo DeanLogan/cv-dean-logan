@@ -70,7 +70,12 @@ function pageLoad(){
 async function getGithubStats() {
     try {
         fetch('/.netlify/functions/github-stats')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             console.log(data)
             console.log(data.lastMonthContributions)
@@ -83,7 +88,7 @@ async function getGithubStats() {
         .catch(error => console.error('Error:', error));
     } 
     catch {
-        console.log("netlify functin is down")
+        console.log("netlify function is down")
     }
 }
 
