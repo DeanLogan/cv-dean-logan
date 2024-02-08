@@ -1,6 +1,8 @@
-import { request } from 'https';
+const https = require('https');
+const request = https.request;
 
-export async function handler(event, context) {
+// This function is the main handler for the lambda function
+exports.handler = async function handler(event, context) {
     const token = process.env.GITHUB_TOKEN;
     const username = 'DeanLogan';
 
@@ -16,6 +18,7 @@ export async function handler(event, context) {
     };
 }
 
+// This function gets the contributions for the last year to date
 function contributionsLastYear(username, token) {
     var query = `
     query($userName:String!) { 
@@ -40,11 +43,16 @@ function contributionsLastYear(username, token) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
+                'User-Agent': 'Get yearly stats',
             },
         }, res => {
             let data = '';
             res.on('data', chunk => data += chunk);
-            res.on('end', () => resolve(JSON.parse(data).data.user.contributionsCollection.contributionCalendar.totalContributions));
+            res.on('end', () => {
+                const jsonData = JSON.parse(data);
+                const totalContributions = jsonData.data.user.contributionsCollection.contributionCalendar.totalContributions;
+                resolve(totalContributions);
+            });
         });
 
         req.on('error', reject);
@@ -56,6 +64,7 @@ function contributionsLastYear(username, token) {
     });
 }
 
+// This function gets the contributions for the last month to date
 function contributionsLastMonth(username, token) {
     var to = new Date();
     var year  = to.getFullYear();
@@ -88,6 +97,7 @@ function contributionsLastMonth(username, token) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
+                'User-Agent': 'Get monthly stats',
             },
         }, res => {
             let data = '';

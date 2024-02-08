@@ -2,7 +2,7 @@ var visible = true;
 var myTimer;
 var myTimerTypeWriter;
 
-//turns the divs into links to the other pages on the website
+// turns the divs into links to the other pages on the website
 function pageTransitions(){
     const homeBtn = document.querySelector('.home-btn');
     const aboutBtn = document.querySelector('.about-btn');
@@ -45,7 +45,7 @@ function pageTransitions(){
     });
 }
 
-//runs when the page is loaded
+// runs when the page is loaded
 function pageLoad(){
     checkTheme();
     hoverEffectForControls();
@@ -59,14 +59,16 @@ function pageLoad(){
 
     //helps make the animation look smoother if the certs and online courses for the about page load in after the transition animation
     if ( document.URL.includes("about") ) {
-        myTimer = setInterval('imageLoad()', 550);
         getGithubStats();
+        myTimer = setInterval('imageLoad()', 550);
     }
     if ( document.title == "Home" ) {
         showSlides();
     }
 }
 
+// send request to netlify lambda function to retreive stats from github for my account (DeanLogan) 
+// See netlify/functions/github-stats.js for the code used in the lambda function.
 async function getGithubStats() {
     try {
         fetch('/.netlify/functions/github-stats')
@@ -77,9 +79,6 @@ async function getGithubStats() {
             return response.json();
         })
         .then(data => {
-            console.log(data)
-            console.log(data.lastMonthContributions)
-            console.log(data.lastYearContributions)
             if (data.lastYearContributions != "undefined" && data.lastMonthContributions != "undefined") {
                 document.getElementById('githubYearStat').innerText = data.lastYearContributions;
                 document.getElementById('githubMonthStat').innerText = data.lastMonthContributions;
@@ -92,7 +91,7 @@ async function getGithubStats() {
     }
 }
 
-//makes the certs and online courses appear once the page has loaded in
+// makes the certs and online courses appear once the page has loaded in
 function imageLoad(){
     clearInterval(myTimer);
     document.getElementsByClassName('tech-used-container')[0].style.opacity = 1;
@@ -102,7 +101,7 @@ function imageLoad(){
     }
 }
 
-//checks what theme is in the local storage and updates the webpage accordingly 
+// checks what theme is in the local storage and updates the webpage accordingly 
 function checkTheme(){
     var theme = localStorage.getItem('theme');
     if(theme == 'light-mode'){
@@ -111,7 +110,7 @@ function checkTheme(){
     }
 }
 
-//this is responsible for the typewriter effect for the titles of each page
+// this is responsible for the typewriter effect for the titles of each page
 function typeWriter(txt, colourFound) {
     var i = 0;
     var timer = setInterval(function(){
@@ -140,7 +139,7 @@ function typeWriter(txt, colourFound) {
     }, 120);
 }
 
-//makes the curosr blink
+// makes the curosr blink
 function cursor() {
     if (visible === true) {
         document.getElementById('cursorId').className = 'hidden';
@@ -154,8 +153,8 @@ function cursor() {
 
 // slideshow for the index/home page
 let slideIndex = 0;
-//showSlides();
 
+// showSlides();
 function showSlides() {
     let i;
     const slides = document.getElementsByClassName("mySlides");
