@@ -646,7 +646,7 @@ section {
 }
 
 .tech-used-container {
-  opacity: 0;
+  opacity: 1;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 2rem;
@@ -654,6 +654,7 @@ section {
   padding-bottom: 3rem;
 }
 .tech-used-container img {
+  opacity: 1 !important;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;

@@ -94,7 +94,6 @@ async function getGithubStats() {
 // makes the certs and online courses appear once the page has loaded in
 function imageLoad(){
     clearInterval(myTimer);
-    document.getElementsByClassName('tech-used-container')[0].style.opacity = 1;
 
     for(i=0;i<document.getElementsByClassName('hover-imgs').length;i++){
         document.getElementsByClassName('hover-imgs')[i].style.opacity = 1;
