@@ -642,6 +642,7 @@ section {
 
 .tech-used-container{
     //transition: all .4s ease-in-out;
+    height: max-content;
     opacity: 1;
     display: grid;
     grid-template-columns: repeat(1, 1fr);

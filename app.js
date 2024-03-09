@@ -98,6 +98,7 @@ function imageLoad(){
     for(i=0;i<document.getElementsByClassName('hover-imgs').length;i++){
         document.getElementsByClassName('hover-imgs')[i].style.opacity = 1;
     }
+    document.getElementsByClassName('tech-used-container')[0].height = 'auto';
 }
 
 // checks what theme is in the local storage and updates the webpage accordingly 

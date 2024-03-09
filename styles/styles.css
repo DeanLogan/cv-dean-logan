@@ -646,6 +646,8 @@ section {
 }
 
 .tech-used-container {
+  height: -moz-max-content;
+  height: max-content;
   opacity: 1;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
