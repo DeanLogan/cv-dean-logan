@@ -166,6 +166,7 @@ section {
   transform: translateY(-50%);
 }
 .controls-hover .hover-effect {
+  color: #FFFFFF;
   opacity: 0;
   cursor: pointer;
   background-color: var(--color-grey-4);
@@ -829,6 +830,24 @@ section {
   transform: translate(-50%, -50%);
   font-weight: 800;
   font-size: 6.3rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-secondary);
+}
+
+::-webkit-resizer {
+  background: var(--color-secondary);
 }
 
 .hidden {

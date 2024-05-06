@@ -162,6 +162,7 @@ section {
     justify-content: center;
     transform: translateY(-50%);
     .hover-effect{
+        color: #FFFFFF;
         opacity: 0;
         //padding: 1rem;
         cursor: pointer;
@@ -173,7 +174,7 @@ section {
         justify-content: center;
         align-items: center;
         margin: .7rem 0;
-        box-shadow: var(--box-shadow-1) ;
+        box-shadow: var(--box-shadow-1);
         i {
             font-size: 1.2rem;
             color: var(--color-grey-2);
@@ -821,6 +822,28 @@ section {
             font-size: 6.3rem;
         }
     }
+}
+
+
+$scrollbar-size: 10px;
+$scrollbar-thumb: var(--color-secondary);
+
+::-webkit-scrollbar { 
+    width: $scrollbar-size; 
+    height: $scrollbar-size;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb; 
+    border-radius: calc($scrollbar-size / 2); 
+}
+
+::-webkit-scrollbar-corner { 
+    background: $scrollbar-thumb;
+}
+
+::-webkit-resizer  { 
+    background: $scrollbar-thumb;  
 }
 
 .hidden{
