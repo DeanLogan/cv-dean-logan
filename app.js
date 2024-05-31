@@ -188,6 +188,7 @@ function hoverEffectForControls(){
             var allDivs = document.querySelectorAll('.hover-effect');
             for (var j = 0; j < allDivs.length; j++) {
                 allDivs[j].style.opacity = '0';
+                allDivs[j].style.zIndex = '2';
             }
             
             // Display the associated div
