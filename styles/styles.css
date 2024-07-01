@@ -349,6 +349,10 @@ section {
   height: 2px;
   background-color: var(--color-grey-5);
 }
+.grid-container .right-paragraphs {
+  padding-left: 1rem;
+  padding-right: 0rem;
+}
 .grid-container .info-container p {
   line-height: 2rem;
   padding: 1rem;
