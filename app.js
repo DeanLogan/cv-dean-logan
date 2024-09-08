@@ -1,6 +1,6 @@
 var visible = true;
-var myTimer;
-var myTimerTypeWriter;
+var imageTimer;
+var typeWriterTimer;
 
 // turns the divs into links to the other pages on the website
 function pageTransitions(){
@@ -48,23 +48,23 @@ function pageTransitions(){
 // runs when the page is loaded
 function pageLoad(){
     checkTheme();
-    hoverEffectForControls();
     var colourFound = false;
-    var txt = document.getElementsByClassName('typewriter')[0].textContent; //gets the text inside the HTML for the typewriter effect
-    window.setInterval('cursor()',400); //used to make the underscore cursor blink
+    var txt = document.getElementsByClassName('typewriter')[0].textContent; // gets the text inside the HTML for the typewriter effect
+    window.setInterval('cursor()',400); // used to make the underscore cursor blink
     document.getElementsByClassName('typewriter')[0].innerHTML = '';
-    myTimerTypeWriter = setTimeout(function(){
+    typeWriterTimer = setTimeout(function(){
         typeWriter(txt, colourFound);
-    },900); //waits for the transition to happen before starting the typewriter effect
+    },900); // waits for the transition to happen before starting the typewriter effect
 
-    //helps make the animation look smoother if the certs and online courses for the about page load in after the transition animation
+    // helps make the animation look smoother if the certs and online courses for the about page load in after the transition animation
     if ( document.URL.includes("about") ) {
         getGithubStats();
-        myTimer = setInterval('imageLoad()', 550);
+        imageTimer = setInterval('imageLoad()', 550);
     }
     if ( document.title == "Home" ) {
         showSlides();
     }
+    hoverEffectForControls();
 }
 
 // send request to netlify lambda function to retreive stats from github for my account (DeanLogan) 
@@ -93,7 +93,7 @@ async function getGithubStats() {
 
 // makes the certs and online courses appear once the page has loaded in
 function imageLoad(){
-    clearInterval(myTimer);
+    clearInterval(imageTimer);
 
     for(i=0;i<document.getElementsByClassName('hover-imgs').length;i++){
         document.getElementsByClassName('hover-imgs')[i].style.opacity = 1;
@@ -114,7 +114,7 @@ function checkTheme(){
 function typeWriter(txt, colourFound) {
     var i = 0;
     var timer = setInterval(function(){
-        //uses the character ? to find where the colour should be swaped in the title (from primary to secondary colour and vise-versa)
+        // uses the character ? to find where the colour should be swaped in the title (from primary to secondary colour and vise-versa)
         if(txt.charAt(i) == '?'){
             document.getElementsByClassName('typewriter')[0].innerHTML += '<span class="colour"></span>';
             if(!colourFound){
@@ -136,7 +136,7 @@ function typeWriter(txt, colourFound) {
         if(i > txt.length){
             clearInterval(timer);
         }
-    }, 120);
+    }, 80);
 }
 
 // makes the curosr blink
@@ -179,8 +179,8 @@ function hoverEffectForControls(){
     var controls = document.querySelector('.controls').children;
 
     for (var i = 0; i < controls.length; i++) {
-        // Add a 'mouseenter' event listener to each child element
-        controls[i].addEventListener('mouseenter', function() {
+        // Add a 'mouseover' event listener to each child element
+        controls[i].addEventListener('mouseover', function() {
             var currentClass = this.className.split(' ')[1];
             var associatedDiv = document.querySelector('.' + currentClass + '-div'); // Get the div associated with the current child element
             
@@ -196,16 +196,17 @@ function hoverEffectForControls(){
                 associatedDiv.style.animation = "makeAppear 0.5s forwards";
                 placeHoverDivsBesideControls();
             }
+            document.querySelector('.controls-hover').style.zIndex = '10'
         });
 
-        // Add a 'mouseleave' event listener to each child element
-        controls[i].addEventListener('mouseleave', function() {
+        // Add a 'mouseout' event listener to each child element
+        controls[i].addEventListener('mouseout', function() {
+            document.querySelector('.controls-hover').style.zIndex = '-10'
             var currentClass = this.className.split(' ')[1];
             var associatedDiv = document.querySelector('.' + currentClass + '-div'); // Get the div associated with the current child element
             
             // Hide the associated div
             if (associatedDiv) {
-                //associatedDiv.style.opacity = '0';
                 associatedDiv.style.animation = "makeDisappear 0.5s forwards";
             }
         });
