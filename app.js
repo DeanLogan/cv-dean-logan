@@ -172,9 +172,11 @@ function showSlides() {
 function placeHoverDivsBesideControls(){
     var controls = document.querySelector('.controls').getBoundingClientRect();
     document.querySelector('.controls-hover').style.left = (controls.left-125) + 'px';
+    console.log("running")
 }
 
 function hoverEffectForControls(){
+    placeHoverDivsBesideControls();
     // Get all the child elements of the 'controls' div
     var controls = document.querySelector('.controls').children;
 
@@ -194,11 +196,12 @@ function hoverEffectForControls(){
             // Display the associated div
             if (associatedDiv) {
                 associatedDiv.style.animation = "makeAppear 0.5s forwards";
-                placeHoverDivsBesideControls();
+                // Store the interval ID
+                this.intervalId = setInterval(placeHoverDivsBesideControls, 50);
             }
             document.querySelector('.controls-hover').style.zIndex = '10'
         });
-
+        
         // Add a 'mouseout' event listener to each child element
         controls[i].addEventListener('mouseout', function() {
             document.querySelector('.controls-hover').style.zIndex = '-10'
@@ -208,6 +211,12 @@ function hoverEffectForControls(){
             // Hide the associated div
             if (associatedDiv) {
                 associatedDiv.style.animation = "makeDisappear 0.5s forwards";
+            }
+            
+            // Clear the interval
+            if (this.intervalId) {
+                clearInterval(this.intervalId);
+                this.intervalId = null;
             }
         });
     }
