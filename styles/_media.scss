@@ -16,6 +16,13 @@
     }
 }
 
+@media screen and (min-width: 2100px) {
+    .container {
+        padding-left: calc((100vw - 1522px) / 2);
+        padding-right: calc((100vw - 1522px) / 2);
+    }
+}
+
 @media screen and (max-width:1532px){
     .container{
         padding: 7rem 11rem;
