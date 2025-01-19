@@ -172,7 +172,6 @@ function showSlides() {
 function placeHoverDivsBesideControls(){
     var controls = document.querySelector('.controls').getBoundingClientRect();
     document.querySelector('.controls-hover').style.left = (controls.left-125) + 'px';
-    console.log("running")
 }
 
 function hoverEffectForControls(){
