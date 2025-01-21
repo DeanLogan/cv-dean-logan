@@ -633,8 +633,11 @@ section {
 }
 .hover-imgs .hover-img .hover-items h3 {
   font-size: 1.5rem;
-  color: var(--color-tertiary);
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
+}
+.hover-imgs .hover-img .hover-items p {
+  color: var(--color-primary);
 }
 .hover-imgs .hover-img .hover-items .icons {
   display: flex;
