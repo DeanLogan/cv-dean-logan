@@ -27,7 +27,6 @@ def place_image(new_image, img, width, height, existing_rects, max_attempts, max
     img_w, img_h = img.size
     for resize_attempt in range(max_resizes):
         for attempt in range(max_attempts):
-            # Generate random coordinates
             x = random.randint(15, width - img_w - 15)
             y = random.randint(15, height - img_h - 15)
             if not overlaps(x, y, img_w, img_h, existing_rects):
